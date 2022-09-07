@@ -1,11 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PostListPageComponent } from "../blog/components/post-list-page/post-list-page.component";
+import { NotFoundPageComponent } from "./components/not-found-page/not-found-page.component";
 
 const routes: Routes = [
   {
     path: '',
-    component: PostListPageComponent
+    pathMatch: 'full',
+    redirectTo: '/blog',
+  },
+  {
+    path: '404',
+    component: NotFoundPageComponent
+  },
+  {
+    path: '**',
+    redirectTo: '404'
   }
 ];
 

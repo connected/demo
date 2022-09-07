@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { BlogModule } from "../blog/blog.module";
+import { MatButtonModule } from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { BlogModule } from "../blog/blog.module";
     BlogModule,
     AppRoutingModule,
     MatToolbarModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

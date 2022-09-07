@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostsService } from "../../services/posts.service";
 
 @Component({
   selector: 'blog-post-list-page',
@@ -6,10 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-list-page.component.scss']
 })
 export class PostListPageComponent implements OnInit {
-
-  constructor() { }
+  constructor(public postsService: PostsService) { }
 
   ngOnInit(): void {
   }
-
 }

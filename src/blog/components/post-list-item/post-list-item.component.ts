@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from "@angular/core";
+import { BlogPost } from "../../types";
 
 @Component({
   selector: 'blog-post-list-item',
@@ -7,9 +8,13 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PostListItemComponent implements OnInit {
-  @Input() public author: string = 'Unknown'
-  @Input() public title: string = 'Untitled'
-  @Input() public text: string = 'No content'
+  @Input() post: BlogPost = {
+    id: NaN,
+    author: 'Unknown',
+    title: 'Untitled',
+    previewText: 'No content',
+    fullText: 'No content'
+  }
 
   constructor() { }
 
