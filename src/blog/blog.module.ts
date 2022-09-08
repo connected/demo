@@ -12,6 +12,7 @@ import { PostsService } from "./services/posts.service";
 import { BlogErrorHandler } from "./error-handler";
 import { PostResolver } from "./resolvers/post.resolver";
 import { NotFoundPageComponent } from '../app/components/not-found-page/not-found-page.component';
+import { CommentsModule } from "../comments/comments.module";
 
 const routes: Route[] = [
   {
@@ -40,7 +41,8 @@ const routes: Route[] = [
     RouterModule.forChild(routes),
     MatCardModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
+    CommentsModule
   ],
   providers: [
     PostsService,

@@ -1,0 +1,13 @@
+.b-comment-form {
+  overflow: hidden;
+
+  &__row {
+    display: flex;
+    margin: 0 -10px;
+  }
+
+  &__col {
+    flex: 1 1 auto;
+    padding: 0 10px;
+  }
+}

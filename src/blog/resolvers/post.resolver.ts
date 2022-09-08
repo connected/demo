@@ -4,7 +4,7 @@ import {
   RouterStateSnapshot,
   ActivatedRouteSnapshot
 } from '@angular/router';
-import { NotFoundError } from "../errors";
+import { PageNotFoundError } from "../errors";
 import { PostsService } from "../services/posts.service";
 import { Observable } from "rxjs";
 import { BlogPost } from "../types";
@@ -23,7 +23,7 @@ export class PostResolver implements Resolve<BlogPost> {
 
       post != null
         ? subscriber.next(post)
-        : subscriber.error(new NotFoundError(`Unable to find post with id ${postId}`))
+        : subscriber.error(new PageNotFoundError(`Unable to find post with id ${postId}`))
     })
   }
 }

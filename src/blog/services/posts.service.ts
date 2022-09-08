@@ -16,16 +16,16 @@ export class PostsService {
       {
         id: 1,
         author: 'Andrew Zilin',
-        previewText: 'What is love? Baby don\'t hurt me!',
+        previewText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
         fullText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis culpa cumque distinctio enim harum in incidunt magnam, neque odio praesentium quasi repellendus velit voluptates. Corporis eum ipsam numquam optio vitae.',
-        title: 'What is love?'
+        title: 'Lorem ipsum'
       },
       {
         id: 2,
         author: 'Andrew Zilin',
-        previewText: 'What is love? Baby don\'t hurt me!',
+        previewText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
         fullText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis culpa cumque distinctio enim harum in incidunt magnam, neque odio praesentium quasi repellendus velit voluptates. Corporis eum ipsam numquam optio vitae.',
-        title: 'What is love?'
+        title: 'Lorem ipsum'
       }
     ]
   }

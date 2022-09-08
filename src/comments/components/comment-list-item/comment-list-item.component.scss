@@ -1,0 +1,28 @@
+.b-comment-list-item {
+  display: flow-root;
+
+  &__left-col {
+    float: left;
+    padding-top: 4px;
+    margin-right: 20px;
+  }
+
+  &__right-col {
+    overflow: hidden;
+  }
+
+  &__avatar {
+    display: block;
+    border-radius: 4px;
+  }
+
+  &__author {
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  &__comment {
+    font-size: 12px;
+  }
+}

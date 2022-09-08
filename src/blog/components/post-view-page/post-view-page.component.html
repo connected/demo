@@ -1,11 +1,17 @@
-<mat-card>
-  <mat-card-subtitle>{{ post.author }}</mat-card-subtitle>
-  <mat-card-title>{{ post.title }}</mat-card-title>
-  <mat-card-content>
-    <p>{{ post.fullText }}</p>
-  </mat-card-content>
-  <mat-card-actions align="end">
-    <button mat-button routerLink="/blog">BACK TO POSTS</button>
-  </mat-card-actions>
-</mat-card>
-
+<div class="b-post-view-page">
+  <div class="b-post-view-page__post">
+    <mat-card>
+      <mat-card-subtitle>{{ post.author }}</mat-card-subtitle>
+      <mat-card-title>{{ post.title }}</mat-card-title>
+      <mat-card-content>
+        <p>{{ post.fullText }}</p>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-button routerLink="/blog">BACK TO POSTS</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <div class="b-post-view-page__comments">
+    <comments-widget></comments-widget>
+  </div>
+</div>

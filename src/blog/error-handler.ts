@@ -1,5 +1,6 @@
 import { ErrorHandler, Injectable } from "@angular/core";
 import { Router } from "@angular/router";
+import { PageNotFoundError } from "./errors";
 
 @Injectable()
 export class BlogErrorHandler implements ErrorHandler {
@@ -7,7 +8,10 @@ export class BlogErrorHandler implements ErrorHandler {
   }
 
   handleError(error: Error) {
-    console.log(error)
-    this.router.navigate(['/blog/404'])
+    if (error instanceof PageNotFoundError) {
+      this.router.navigate(['/blog/404'])
+    } else {
+      console.log(error)
+    }
   }
 }

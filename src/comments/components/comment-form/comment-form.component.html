@@ -1,0 +1,29 @@
+<form autocomplete="off" class="b-comment-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="b-comment-form__row">
+    <div class="b-comment-form__col">
+      <mat-form-field appearance="outline" style="display: block">
+        <mat-label>Author</mat-label>
+        <input matInput maxlength="100" formControlName="author">
+      </mat-form-field>
+    </div>
+    <div class="b-comment-form__col">
+      <mat-form-field appearance="outline" style="display: block">
+        <mat-label>E-Mail</mat-label>
+        <input matInput type="email" maxlength="200" formControlName="email">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="b-comment-form__row">
+    <div class="b-comment-form__col">
+      <mat-form-field appearance="outline" style="display: block">
+        <mat-label>Comment</mat-label>
+        <textarea matInput maxlength="600" rows="5" formControlName="text" style="resize: none"></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="b-comment-form__row">
+    <div class="b-comment-form__col">
+      <button mat-raised-button color="primary">Submit comment</button>
+    </div>
+  </div>
+</form>

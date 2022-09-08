@@ -1,0 +1,15 @@
+<div class="b-comment-list-item">
+  <div class="b-comment-list-item__left-col">
+    <img
+      [src]="gravatarUrl"
+      alt=""
+      width="60"
+      height="60"
+      class="b-comment-list-item__avatar"
+    />
+  </div>
+  <div class="b-comment-list-item__right-col">
+    <div class="b-comment-list-item__author">{{ comment.author }}</div>
+    <div class="b-comment-list-item__comment">{{ comment.text }}</div>
+  </div>
+</div>
