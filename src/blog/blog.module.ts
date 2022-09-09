@@ -9,7 +9,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { Route, RouterModule } from "@angular/router";
 import { PostViewPageComponent } from './components/post-view-page/post-view-page.component';
 import { PostsService } from "./services/posts.service";
-import { BlogErrorHandler } from "./error-handler";
+import { BlogErrorHandler } from "../app/error-handler";
 import { PostResolver } from "./resolvers/post.resolver";
 import { NotFoundPageComponent } from '../app/components/not-found-page/not-found-page.component';
 import { CommentsModule } from "../comments/comments.module";
@@ -45,11 +45,7 @@ const routes: Route[] = [
     CommentsModule
   ],
   providers: [
-    PostsService,
-    {
-      provide: ErrorHandler,
-      useClass: BlogErrorHandler
-    }
+    PostsService
   ]
 })
 export class BlogModule { }
