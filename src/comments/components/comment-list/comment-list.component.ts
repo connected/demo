@@ -1,17 +1,21 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from "@angular/core";
-import { Comment } from "../../types";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
+import { Comment } from '../../types';
 
 @Component({
   selector: 'comment-list',
   templateUrl: './comment-list.component.html',
   styleUrls: ['./comment-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CommentListComponent implements OnInit {
-  @Input() comments: Comment[] = []
+  @Input() comments: Comment[] = [];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

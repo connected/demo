@@ -1,29 +1,70 @@
-import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild
+} from '@angular/core';
+import { NonNullableFormBuilder, Validators } from '@angular/forms';
+import { CommentsService } from "../../services/comments.service";
+import { BlogPost } from "../../../blog/types";
+import { Comment, CommentFormData } from "../../types";
 
 @Component({
   selector: 'comment-form',
   templateUrl: './comment-form.component.html',
   styleUrls: ['./comment-form.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CommentFormComponent implements OnInit {
-  form = new FormGroup({
-    author: new FormControl(undefined, [Validators.required]),
-    email: new FormControl(undefined, [Validators.required, Validators.email]),
-    text: new FormControl(undefined, [Validators.required])
-  }, {
-    updateOn: "submit"
-  })
+  @Input() postId: BlogPost['id'] = NaN
+  @Output() createCommentEvent = new EventEmitter<Comment>()
+  
+  @ViewChild('formElement') formElement!: ElementRef
 
-  constructor() { }
+  form = this.formBuilder.group(
+    {
+      author: ['', [Validators.required]],
+      email: ['', [
+        Validators.required,
+        Validators.email,
+      ]],
+      text: ['', [Validators.required]],
+    },
+    {
+      updateOn: 'submit'
+    }
+  );
+
+  constructor(private formBuilder: NonNullableFormBuilder, private commentsService: CommentsService) {}
 
   ngOnInit(): void {
   }
 
-  onSubmit () {
-    if (this.form.valid) {
-      // ...
+  onSubmit() {
+    if (!this.form.valid) {
+      return
     }
+
+    const formData: CommentFormData = {
+      body: this.form.value.text!,
+      email: this.form.value.email!,
+      name: this.form.value.author!
+    }
+
+    this.form.disable()
+
+    this.commentsService.createComment(this.postId, formData)
+      .subscribe((comment) => {
+        this.createCommentEvent.emit(comment)
+
+        this.form.enable()
+        this.form.reset()
+
+        this.formElement.nativeElement.reset()
+      })
   }
 }

@@ -1,2 +1,7 @@
-<h1>Something went wrong...</h1>
-<code></code>
+<h1 style="margin-bottom: 40px">Something went wrong...</h1>
+<mat-form-field appearance="outline" style="display: block">
+  <mat-label>Log</mat-label>
+  <textarea matInput rows="20" style="width: 100%; resize: none">{{
+    errorMessage + "\n\n" + errorTrace
+  }}</textarea>
+</mat-form-field>

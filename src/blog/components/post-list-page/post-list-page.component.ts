@@ -1,14 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { PostsService } from "../../services/posts.service";
+import { BlogPost } from '../../types';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'blog-post-list-page',
   templateUrl: './post-list-page.component.html',
-  styleUrls: ['./post-list-page.component.scss']
+  styleUrls: ['./post-list-page.component.scss'],
 })
 export class PostListPageComponent implements OnInit {
-  constructor(public postsService: PostsService) { }
+  blogPosts: BlogPost[] = [];
+
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.activatedRoute.data.subscribe(({ posts }) => {
+      this.blogPosts = posts;
+    });
   }
 }

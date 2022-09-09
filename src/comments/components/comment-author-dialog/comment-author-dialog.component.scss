@@ -1,0 +1,24 @@
+.b-comment--author-dialog {
+  &__body {
+    display: flow-root;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__avatar {
+    float: left;
+    margin-right: 15px;
+  }
+
+  &__avatar-image {
+    border-radius: 4px;
+  }
+
+  &__details {
+    overflow: hidden;
+    padding-top: 5px;
+  }
+}

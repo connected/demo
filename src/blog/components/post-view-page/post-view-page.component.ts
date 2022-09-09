@@ -1,28 +1,32 @@
-import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { BlogPost } from "../../types";
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { BlogPost, BlogPostWithComments } from '../../types';
+import { Comment } from '../../../comments/types';
 
 @Component({
   selector: 'app-post-view-page',
   templateUrl: './post-view-page.component.html',
   styleUrls: ['./post-view-page.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PostViewPageComponent implements OnInit {
+  comments: Comment[] = [];
   post: BlogPost = {
     id: NaN,
     author: 'Unknown',
     title: 'Untitled',
     previewText: 'No content',
-    fullText: 'No content'
-  }
+    fullText: 'No content',
+  };
 
-  constructor(private activatedRoute: ActivatedRoute) {
-  }
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe(({ post }) => {
-      this.post = post
-    })
+    const { post, comments } = <BlogPostWithComments>(
+      this.activatedRoute.snapshot.data
+    );
+
+    this.post = post;
+    this.comments = comments;
   }
 }

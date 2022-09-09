@@ -8,9 +8,8 @@ describe('CommentsWidgetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CommentsWidgetComponent ]
-    })
-    .compileComponents();
+      declarations: [CommentsWidgetComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CommentsWidgetComponent);
     component = fixture.componentInstance;

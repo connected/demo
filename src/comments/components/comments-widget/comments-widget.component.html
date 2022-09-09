@@ -3,9 +3,9 @@
     <h2>Comments</h2>
   </div>
   <div class="b-comments-widget__comment-list">
-    <comment-list [comments]="commentsService.fetchComments()"></comment-list>
+    <comment-list [comments]="comments"></comment-list>
   </div>
   <div>
-    <comment-form></comment-form>
+    <comment-form [postId]="postId" (createCommentEvent)="onCreateComment($event)"></comment-form>
   </div>
 </div>

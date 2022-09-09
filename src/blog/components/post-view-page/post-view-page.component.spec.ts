@@ -8,9 +8,8 @@ describe('PostViewPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PostViewPageComponent ]
-    })
-    .compileComponents();
+      declarations: [PostViewPageComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PostViewPageComponent);
     component = fixture.componentInstance;

@@ -1,32 +1,47 @@
 import { Injectable } from '@angular/core';
-import { BlogPost } from "../types";
+import { BlogPost, JpBlogPost } from '../types';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs';
+
+const RANDOM_AUTHORS = [
+  'Math Blank',
+  'Oris Lega',
+  'Dino Paths',
+  'Noris Jsonson',
+  'Emma Walson',
+];
+
+function jpBlogPostToBlogPost(jpBlogPost: JpBlogPost): BlogPost {
+  return {
+    id: jpBlogPost.id,
+    author: RANDOM_AUTHORS[jpBlogPost.id % RANDOM_AUTHORS.length],
+    title: jpBlogPost.title[0].toUpperCase() + jpBlogPost.title.substring(1),
+    fullText: jpBlogPost.body,
+    previewText: jpBlogPost.body.substring(0, 300).trim() + '...',
+  };
+}
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PostsService {
-  constructor() { }
+  constructor(private http: HttpClient) {}
 
-  fetchPost (postId: BlogPost['id']): BlogPost | null {
-    return this.fetchPosts().find(post => post.id === postId) ?? null
+  fetchPost(postId: BlogPost['id']) {
+    return this.http
+      .get<JpBlogPost>(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+      .pipe(map((jsBlogPost) => jpBlogPostToBlogPost(jsBlogPost)));
   }
 
-  fetchPosts(): BlogPost[] {
-    return [
-      {
-        id: 1,
-        author: 'Andrew Zilin',
-        previewText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-        fullText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis culpa cumque distinctio enim harum in incidunt magnam, neque odio praesentium quasi repellendus velit voluptates. Corporis eum ipsam numquam optio vitae.',
-        title: 'Lorem ipsum'
-      },
-      {
-        id: 2,
-        author: 'Andrew Zilin',
-        previewText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-        fullText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis culpa cumque distinctio enim harum in incidunt magnam, neque odio praesentium quasi repellendus velit voluptates. Corporis eum ipsam numquam optio vitae.',
-        title: 'Lorem ipsum'
-      }
-    ]
+  fetchPosts() {
+    return this.http
+      .get<JpBlogPost[]>('https://jsonplaceholder.typicode.com/posts')
+      .pipe(
+        map((jsBlogPosts) =>
+          jsBlogPosts
+            .slice(0, 5)
+            .map((jsBlogPost) => jpBlogPostToBlogPost(jsBlogPost))
+        )
+      );
   }
 }

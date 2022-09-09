@@ -1,0 +1,22 @@
+<div class="b-comment--author-dialog">
+  <div class="b-comment--author-dialog__body">
+    <div class="b-comment--author-dialog__avatar">
+      <img
+        [src]="gravatarUrl"
+        alt=""
+        width="60"
+        height="60"
+        class="b-comment--author-dialog__avatar-image"
+      />
+    </div>
+    <div class="b-comment--author-dialog__details">
+      <div mat-dialog-content>{{ data.author }}</div>
+      <div mat-dialog-content>
+        <a href="mailto:{{ data.email }}">{{ data.email }}</a>
+      </div>
+    </div>
+  </div>
+  <div mat-dialog-actions class="b-comment--author-dialog__footer">
+    <button mat-stroked-button (click)="onCloseButtonClick()">Close</button>
+  </div>
+</div>

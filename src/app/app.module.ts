@@ -1,33 +1,32 @@
-import { ErrorHandler, NgModule } from "@angular/core";
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
-import { MatToolbarModule } from "@angular/material/toolbar";
-import { BlogModule } from "../blog/blog.module";
-import { MatButtonModule } from "@angular/material/button";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { BlogModule } from '../blog/blog.module';
+import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
-import { BlogErrorHandler } from "./error-handler";
+import { BlogErrorHandler } from './error-handler';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ErrorPageComponent
-  ],
+  declarations: [AppComponent, ErrorPageComponent],
   imports: [
     BrowserModule,
     BlogModule,
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    MatInputModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     {
       provide: ErrorHandler,
-      useClass: BlogErrorHandler
-    }
+      useClass: BlogErrorHandler,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
