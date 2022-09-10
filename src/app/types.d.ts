@@ -1,5 +1,3 @@
-import { Comment } from '../comments/types';
-
 export type BlogPost = {
   id: number;
   author: string;
@@ -18,4 +16,25 @@ export type JpBlogPost = {
 export type BlogPostWithComments = {
   post: BlogPost;
   comments: Comment[];
+};
+
+export type Comment = {
+  id: number;
+  author: string;
+  email: string;
+  text: string;
+};
+
+export type JpComment = {
+  id: number;
+  postId: number;
+  name: string;
+  email: string;
+  body: string;
+};
+
+export type CommentFormData = {
+  name: string;
+  email: string;
+  body: string;
 };

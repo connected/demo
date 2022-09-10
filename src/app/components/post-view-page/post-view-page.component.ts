@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BlogPost, BlogPostWithComments } from '../../types';
-import { Comment } from '../../../comments/types';
+import { BlogPost, BlogPostWithComments, Comment } from '../../types';
 
 @Component({
   selector: 'app-post-view-page',

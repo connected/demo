@@ -4,7 +4,6 @@ import {
   RouterStateSnapshot,
   ActivatedRouteSnapshot,
 } from '@angular/router';
-import { PageNotFoundError } from '../errors';
 import { PostsService } from '../services/posts.service';
 import { Observable } from 'rxjs';
 import { BlogPost } from '../types';
@@ -16,6 +15,7 @@ export class PostsResolver implements Resolve<Observable<BlogPost[]>> {
   constructor(private postsService: PostsService) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    // @todo Implement error handler
     return this.postsService.fetchPosts();
   }
 }

@@ -1,6 +1,6 @@
 import { ErrorHandler, Injectable, NgZone } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { PageNotFoundError } from '../blog/errors';
+import { PageNotFoundError } from './errors';
 
 export type ErrorLocationState = {
   message?: string;

@@ -14,6 +14,7 @@ export class PostResolver implements Resolve<BlogPost> {
   constructor(private postsService: PostsService) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    // @todo Implement error handler
     return this.postsService.fetchPost(route.params['id']);
   }
 }

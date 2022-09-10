@@ -22,9 +22,7 @@ export class CommentAuthorDialogComponent implements OnInit {
     return gravatarUrl(this.data.email, { size: 80 });
   }
 
-  ngOnInit(): void {
-    console.log(this.data);
-  }
+  ngOnInit(): void {}
 
   onCloseButtonClick() {
     this.dialogRef.close();

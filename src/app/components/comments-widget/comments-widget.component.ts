@@ -4,8 +4,7 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
-import { Comment } from '../../types';
-import { BlogPost } from "../../../blog/types";
+import { BlogPost, Comment } from '../../types';
 
 @Component({
   selector: 'comments-widget',
@@ -19,11 +18,10 @@ export class CommentsWidgetComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onCreateComment(comment: Comment) {
     // Not sure if this is legit to assign to @Input() prop.
-    this.comments = [...this.comments, comment]
+    this.comments = [...this.comments, comment];
   }
 }

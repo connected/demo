@@ -6,6 +6,9 @@
     <comment-list [comments]="comments"></comment-list>
   </div>
   <div>
-    <comment-form [postId]="postId" (createCommentEvent)="onCreateComment($event)"></comment-form>
+    <comment-form
+      [postId]="postId"
+      (createCommentEvent)="onCreateComment($event)"
+    ></comment-form>
   </div>
 </div>

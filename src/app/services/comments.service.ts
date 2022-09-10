@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Comment, CommentFormData, JpComment } from '../types';
-import { BlogPost } from '../../blog/types';
+import { BlogPost } from '../types';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
 
@@ -31,14 +31,22 @@ export class CommentsService {
       );
   }
 
-  createComment (postId: BlogPost['id'], data: CommentFormData) {
-    return this.http.post<Comment>(`http://jsonplaceholder.typicode.com/posts/${postId}/comments`, data)
-      // Mock new comment in response
-      .pipe(map<Comment, Comment>(() => ({
-        id: Math.round(Math.random() * 1000),
-        text: data.body,
-        author: data.name,
-        email: data.email
-      })))
+  createComment(postId: BlogPost['id'], data: CommentFormData) {
+    return (
+      this.http
+        .post<Comment>(
+          `http://jsonplaceholder.typicode.com/posts/${postId}/comments`,
+          data
+        )
+        // Mock new comment in response
+        .pipe(
+          map<Comment, Comment>(() => ({
+            id: Math.round(Math.random() * 1000),
+            text: data.body,
+            author: data.name,
+            email: data.email,
+          }))
+        )
+    );
   }
 }
