@@ -26,6 +26,8 @@ import { PostViewPageComponent } from './components/post-view-page/post-view-pag
 import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import { StoreModule } from '@ngrx/store';
+import { GuestbookModule } from "../guestbook/guestbook.module";
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { MatDividerModule } from '@angular/material/divider';
   ],
   imports: [
     BrowserModule,
+    GuestbookModule,
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,
@@ -62,6 +65,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatDividerModule,
     MatButtonModule,
     HttpClientModule,
+    StoreModule.forRoot({}, {}),
   ],
   providers: [
     {
