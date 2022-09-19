@@ -1,1 +1,10 @@
-<guestbook-records-list [records]="records"></guestbook-records-list>
+<div class="b-guestbook-records-page">
+  <div class="b-guestbook-records-page__records">
+    <guestbook-records-list [records]="records"></guestbook-records-list>
+  </div>
+  <div>
+    <guestbook-record-form
+      (submitEvent)="onRecordSubmit($event)"
+    ></guestbook-record-form>
+  </div>
+</div>

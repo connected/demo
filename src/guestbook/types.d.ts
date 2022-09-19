@@ -1,6 +1,10 @@
 export type GuestbookRecord = {
   id: number;
   name: string;
-  email: string;
   text: string;
-}
+};
+
+export type GuestbookRecordFormData = {
+  name: string;
+  text: string;
+};

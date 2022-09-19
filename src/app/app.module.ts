@@ -27,7 +27,7 @@ import { NotFoundPageComponent } from './components/not-found-page/not-found-pag
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { StoreModule } from '@ngrx/store';
-import { GuestbookModule } from "../guestbook/guestbook.module";
+import { GuestbookModule } from '../guestbook/guestbook.module';
 
 @NgModule({
   declarations: [

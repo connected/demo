@@ -1,22 +1,25 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from "@angular/core";
-import { GuestbookRecord } from "../../types";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
+import { GuestbookRecord } from '../../types';
 
 @Component({
   selector: 'guestbook-records-list-item',
   templateUrl: './records-list-item.component.html',
   styleUrls: ['./records-list-item.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RecordsListItemComponent implements OnInit {
   @Input() record: GuestbookRecord = {
     id: NaN,
     name: 'Unknown',
-    email: 'unknown',
-    text: 'No content'
-  }
+    text: 'No content',
+  };
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

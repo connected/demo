@@ -1,3 +1,13 @@
-<div *ngFor="let record of records">
-  <guestbook-records-list-item [record]="record"></guestbook-records-list-item>
+<div class="b-guestbook-records-list">
+  <ng-template [ngIf]="records.length > 0" [ngIfElse]="noRecords">
+    <div *ngFor="let record of records" class="b-guestbook-records-list__item">
+      <guestbook-records-list-item
+        [record]="record"
+      ></guestbook-records-list-item>
+    </div>
+  </ng-template>
+
+  <ng-template #noRecords>
+    <div style="color: #999">No records yet. Be the first one to leave a feedback.</div>
+  </ng-template>
 </div>

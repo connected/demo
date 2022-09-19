@@ -1,1 +1,30 @@
-<p>record-form works!</p>
+<form
+  #formElement
+  autocomplete="off"
+  class="b-comment-form"
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+>
+  <div><h2>Feedback</h2></div>
+  <div>
+    <mat-form-field appearance="outline" style="display: block">
+      <mat-label>Name</mat-label>
+      <input matInput maxlength="100" formControlName="name" />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline" style="display: block">
+      <mat-label>Comment</mat-label>
+      <textarea
+        matInput
+        maxlength="600"
+        rows="5"
+        formControlName="text"
+        style="resize: none"
+      ></textarea>
+    </mat-form-field>
+  </div>
+  <div>
+    <button mat-raised-button color="primary">Submit</button>
+  </div>
+</form>
